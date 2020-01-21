@@ -30,9 +30,7 @@ fetchcontent_declare(ispc_compiler
                      URL
                      ${ispc_url}
                      USES_TERMINAL_DOWNLOAD
-		     TRUE
-                     #SOURCE_DIR
-                     #"${model_source_dir}"
+                     TRUE
 )
 
 FetchContent_Declare(opus
@@ -95,8 +93,8 @@ target_compile_options(opus_ispc_benchmark PRIVATE
      /experimental:external                                                                                                  
      /external:anglebrackets                                                                                                
      /external:W0>)
-target_include_directories(opus_ispc_benchmark PRIVATE ispc)
-target_link_libraries(opus_ispc_benchmark PRIVATE benchmark ispc_lib)
+target_include_directories(opus_ispc_benchmark PRIVATE ${ispc_headers_dir})
+target_link_libraries(opus_ispc_benchmark PRIVATE benchmark opus_ispc_lib)
 install(TARGETS opus_ispc_benchmark RUNTIME DESTINATION "bin" CONFIGURATIONS Release)
 add_test(opus_ispc_benchmark opus_ispc_benchmark)
 
@@ -113,7 +111,7 @@ target_include_directories(opus_ispc_test PRIVATE
     "${googletest_SOURCE_DIR}/googletest/include"
     ispc)
 
-target_include_directories(opus_ispc_test PRIVATE ispc)
-target_link_libraries(opus_ispc_test PRIVATE gtest gtest_main ispc_lib)
+target_include_directories(opus_ispc_test PRIVATE ${ispc_headers_dir})
+target_link_libraries(opus_ispc_test PRIVATE gtest gtest_main opus_ispc_lib)
 install(TARGETS opus_ispc_test RUNTIME DESTINATION "bin" CONFIGURATIONS Release)
 add_test(opus_ispc_test opus_ispc_test)
