@@ -53,8 +53,14 @@ macro( add_ispc_file )
 
 endmacro()
 
+if (CMAKE_SIZEOF_VOID_P EQUAL 8 )
+    set(ISPC_ARCH "x86-64")
+else()
+    set(ISPC_ARCH "x86")
+endif()
+
 # TODO: fix so macro can generate multiple targets (i.e. SSE4, avx1 etc)
-add_ispc_file(FILE sum TARGETS avx2-i32x16 ARCH x86-64)
+add_ispc_file(FILE sum TARGETS avx2-i32x16 ARCH ${ISPC_ARCH})
 
 add_custom_target(
   generate-ispc
