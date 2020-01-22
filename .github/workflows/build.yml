@@ -25,20 +25,6 @@ jobs:
             args: -G "Visual Studio 16 2019" -A x64
           }
         - {
-            name: "Linux/X64/Release",
-            artifact: "opus-ispc-linux-x64-release.tar.xz",
-            os: ubuntu-latest,
-            config: Release,
-            args:
-          }
-        - {
-            name: "MacOSX/X64/Release",
-            artifact: "opus-ispc-macosx-x64-release.tar.xz",
-            os: macos-latest,
-            config: Release,
-            args:
-          }
-        - {
             name: "Windows/X86/Debug",
             artifact: "opus-ispc-win-x86-debug.tar.xz",
             os: windows-latest,
@@ -51,20 +37,6 @@ jobs:
             os: windows-latest,
             config: Debug,
             args: -G "Visual Studio 16 2019" -A x64
-          }
-        - {
-            name: "Linux/X64/Debug",
-            artifact: "opus-ispc-linux-x64-debug.tar.xz",
-            os: ubuntu-latest,
-            config: Debug,
-            args:
-          }
-        - {
-            name: "MacOSX/X64/Debug",
-            artifact: "opus-ispc-macosx-x64-debug.tar.xz",
-            os: macos-latest,
-            config: Release,
-            args:
           }
     steps:
       - uses: actions/checkout@v1
