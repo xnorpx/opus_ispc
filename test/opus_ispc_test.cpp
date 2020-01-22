@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <sum.h>
+#include <ispc/sum.h>
 
 #include <algorithm>
 #include <numeric>

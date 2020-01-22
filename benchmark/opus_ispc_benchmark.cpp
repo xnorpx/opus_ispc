@@ -1,5 +1,5 @@
 #include <benchmark/benchmark.h>
-#include <sum.h>
+#include <ispc/sum.h>
 
 #include <numeric>
 #include <random>
