@@ -91,11 +91,11 @@ jobs:
       - name: Install
         working-directory: ./build
         run: cmake --install . --config ${{ matrix.config.config }} --prefix opus-benchmark
-      - name: Pack Artifact
-        working-directory: ./build
-        run: cmake -E tar cJfv ${{ matrix.config.artifact }} opus-benchmark
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          path: ./build/${{ matrix.config.artifact }}
-          name: ${{ matrix.config.artifact }}
+        #- name: Pack Artifact
+        #working-directory: ./build
+        #run: cmake -E tar cJfv ${{ matrix.config.artifact }} opus-benchmark
+        #- name: Upload Artifact
+        #uses: actions/upload-artifact@v1
+        #with:
+        #  path: ./build/${{ matrix.config.artifact }}
+        #  name: ${{ matrix.config.artifact }}
